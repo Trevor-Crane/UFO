@@ -4,7 +4,7 @@ const tableData = data;
 // Reference the HTML table using d3
 var tbody = d3.select("tbody");
 
-// Creating a Teble
+// Creating a Table
 function buildTable(data) {
     // Clear out any existing data
     tbody.html("");
@@ -13,16 +13,16 @@ function buildTable(data) {
         // Append a row to the table body
         let row = tbody.append("tr");
         // Loop through each field in the dataRow and add each value as a table cell (td)
-        Object.values(dataRow).forEach((val) =>{
+        Object.values(dataRow).forEach((val) => {
             let cell = row.append("td");
             cell.text(val);
             }
         );
     });
-}
+};
 
 // How to handle the click of a button
-function handleClick(){
+function handleClick() {
     // Grab the datetime value from the filter
     let date = d3.select("#datetime").property("value");
     let filteredData = tableData;
@@ -34,7 +34,7 @@ function handleClick(){
     // Rebuild the table using the filtered data
     // @NOTE: If not date was entered, then filteredData will just be the original tableData
     buildTable(filteredData);
-}
+};
 
 // Attach an event to listen for the form button
 d3.selectAll("#filter-btn").on("click", handleClick);
